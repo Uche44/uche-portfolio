@@ -1,0 +1,6 @@
+export { HeroSection } from "./hero-section"
+export { AboutSection } from "./about-section"
+export { BlogSection } from "./blog-section"
+export { PortfolioSection } from "./portfolio-section"
+export { TestimonialsSection } from "./testimonials-section"
+export { ContactSection } from "./contact-section"
