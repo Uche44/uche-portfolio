@@ -14,12 +14,12 @@ interface MobileNavProps {
 
 export function MobileNav({ activeSection, onNavigate }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false)
-  
+
   const handleNavigate = (section: string) => {
     onNavigate(section)
     setIsOpen(false)
   }
-  
+
   return (
     <>
       {/* Mobile header */}
@@ -31,16 +31,16 @@ export function MobileNav({ activeSection, onNavigate }: MobileNavProps) {
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
             <Image
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+              src="/me.jpg"
               alt="Profile"
               width={40}
               height={40}
               className="object-cover"
             />
           </div>
-          <span className="font-display text-xl">ALEX CHEN</span>
+          <span className="font-display text-xl">PERPETUAL ASOGWA</span>
         </div>
-        
+
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="p-2 rounded-lg bg-muted hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -48,7 +48,7 @@ export function MobileNav({ activeSection, onNavigate }: MobileNavProps) {
           {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </motion.header>
-      
+
       {/* Mobile drawer */}
       <AnimatePresence>
         {isOpen && (
@@ -61,7 +61,7 @@ export function MobileNav({ activeSection, onNavigate }: MobileNavProps) {
               onClick={() => setIsOpen(false)}
               className="fixed inset-0 bg-foreground/50 z-40 lg:hidden"
             />
-            
+
             {/* Drawer */}
             <motion.div
               initial={{ x: "100%" }}
@@ -79,22 +79,22 @@ export function MobileNav({ activeSection, onNavigate }: MobileNavProps) {
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              
+
               {/* Profile */}
               <div className="py-8 flex flex-col items-center border-b border-sidebar-border">
                 <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-primary shadow-xl mb-4">
                   <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face"
+                    src="/me.jpg"
                     alt="Profile"
                     width={96}
                     height={96}
                     className="object-cover"
                   />
                 </div>
-                <h3 className="font-display text-xl text-sidebar-foreground">ALEX CHEN</h3>
+                <h3 className="font-display text-xl text-sidebar-foreground">PERPETUAL ASOGWA</h3>
                 <p className="text-sm text-sidebar-foreground/70">Fullstack Developer</p>
               </div>
-              
+
               {/* Navigation */}
               <nav className="flex-1 p-4">
                 <ul className="space-y-1">

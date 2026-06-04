@@ -46,13 +46,9 @@ export function ProjectCard({
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
         
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-foreground/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileHover={{ opacity: 1, y: 0 }}
-            className="text-card"
-          >
+        {/* Overlay - always visible on mobile, hover-only on large screens */}
+        <div className="absolute inset-0 bg-foreground/80 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <div className="text-card translate-y-0 lg:translate-y-4 lg:group-hover:translate-y-0 transition-transform duration-300">
             <h3 className="font-display text-2xl mb-2">{title}</h3>
             <p className="text-sm text-card/80 mb-4 line-clamp-2">{description}</p>
             
@@ -93,7 +89,7 @@ export function ProjectCard({
                 </a>
               )}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </motion.div>

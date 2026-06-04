@@ -17,7 +17,7 @@ export function PortfolioSection() {
   return (
     <section
       id="portfolio"
-      className="min-h-screen py-20 lg:py-0 lg:pl-[220px] flex items-center md:mt-16"
+      className="min-h-screen py-20 lg:py-0 lg:pl-[220px] flex items-center"
     >
       <div className="container mx-auto px-6 lg:px-12">
         <SectionHeading title="PORTFOLIO" />

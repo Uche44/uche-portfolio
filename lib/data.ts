@@ -18,7 +18,7 @@ export const navItems = [
   { id: "about", label: "About Me", icon: "User" },
   { id: "blog", label: "Blog", icon: "FileText" },
   { id: "portfolio", label: "Portfolio", icon: "Briefcase" },
-  { id: "testimonials", label: "Testimonials", icon: "MessageSquare" },
+  // { id: "testimonials", label: "Testimonials", icon: "MessageSquare" },
   { id: "contact", label: "Contact", icon: "Mail" },
 ] as const;
 
@@ -54,7 +54,7 @@ export const stats = [
   { value: 10, suffix: "+", label: "Projects Done" },
   { value: 600, suffix: "+", label: "GitHub Commits" },
   { value: 5, suffix: "", label: "Articles Written" },
-  // { value: 30, suffix: "+", label: "Technologies" },
+  { value: 30, suffix: "+", label: "Open Source Contributions" },
   // { value: 15, suffix: "K", label: "Lines of Code" },
 ];
 

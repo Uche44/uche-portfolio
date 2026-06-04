@@ -52,17 +52,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden md:px-20"
     >
-      {/* Yellow accent bar - left */}
-      {/* <motion.div
-        style={{ width: yellowRectWidth }}
-        className="absolute hidden md:block left-0 top-1/4 h-70 bottom-0 bg-primary z-10"
-      /> */}
 
-      {/* Yellow accent bar - right */}
-      {/* <motion.div
-        style={{ opacity: contentOpacity }}
-        className="absolute hidden md:block right-0 top-1/4 w-8 h-70 bg-primary"
-      /> */}
 
       {/* Main content */}
       <div className="container mx-auto px-6 lg:px-20 relative z-20">
@@ -76,7 +66,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className={`inline-block px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm mb-6 ${anton.variable}`}
+              className={`inline-block px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm md:text-xl mb-6 ${anton.variable}`}
             >
               HI THERE!
             </motion.span>
@@ -112,7 +102,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-muted-foreground max-w-md mb-8 leading-relaxed"
+              className="text-muted-foreground max-w-md mb-8 leading-relaxed md:text-xl"
             >
               I build exceptional digital experiences that combine beautiful
               design with powerful functionality. Let&apos;s create something
@@ -127,7 +117,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
             >
               <Button
                 onClick={() => onNavigate("portfolio")}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full font-medium"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full font-medium md:text-[18px] cursor-pointer"
               >
                 View Projects
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -135,7 +125,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               <Button
                 onClick={() => onNavigate("contact")}
                 variant="outline"
-                className="border-foreground text-foreground hover:bg-foreground hover:text-background px-6 py-3 rounded-full font-medium"
+                className="border-foreground text-foreground hover:bg-foreground hover:text-background px-6 py-3 rounded-full font-medium md:text-[18px] cursor-pointer"
               >
                 Contact Me
               </Button>
@@ -144,40 +134,8 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
 
           {/* Right - Profile image with decorative elements */}
           <div className="relative md:h-[25rem] flex justify-center lg:justify-end">
-            {/* Curved line with icons */}
-            {/* <svg
-              className="absolute inset-0 w-full h-full border-green-600 border-2"
-              viewBox="0 0 400 400"
-              fill="none"
-            >
-              <motion.path
-                d="M 320 50 Q 380 200 320 350"
-                stroke="#f5b52e"
-                strokeWidth="2"
-                fill="none"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-                // className="border-red-600 border-2"
-              />
-            </svg> */}
 
-            {/* Floating icons around the image */}
-            {/* <div className="absolute right-0 top-0 bottom-0 flex flex-col justify-around py-8 rounded-full border-purple-600 border-2"> */}
-            {/* <div className="absolute right-0 top-0 w-[25rem] h-[25rem] bottom-0 flex flex-col justify-around py-8 rounded-full border-purple-600 border-2">
-              {floatingIcons.map(({ icon: Icon, delay }, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 + delay }}
-                  whileHover={{ scale: 1.2 }}
-                  className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg cursor-pointer border-red-600 border-2"
-                >
-                  <Icon className="w-4 h-4 text-primary-foreground" />
-                </motion.div>
-              ))}
-            </div> */}
+
 
             {/* Profile image */}
             <motion.div
@@ -193,7 +151,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="relative w-64 h-64 md:w-[25rem] md:h-[25rem] rounded-full overflow-hidden border-4 border-card shadow-2xl"
+                className="relative w-64 h-64 md:w-[27rem] md:h-[27rem] rounded-full overflow-hidden border-4 border-card shadow-2xl"
               >
                 <Image
                   src="/me.jpg"

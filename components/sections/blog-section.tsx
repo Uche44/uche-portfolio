@@ -20,7 +20,7 @@ export function BlogSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg text-muted-foreground max-w-2xl mb-12"
+          className="text-lg text-muted-foreground max-w-2xl mb-12 md:text-xl"
         >
           Thoughts, tutorials, and insights about web development, design patterns,
           and the latest technologies I&apos;m exploring.

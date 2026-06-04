@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { geistMono, geistSans, anton, bebasNeue } from "./fonts";
 import { Analytics } from "@vercel/analytics/next";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 // const geistSans = Geist({
@@ -60,6 +61,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
+        <Toaster richColors closeButton position="bottom-right" />
       </body>
     </html>
   );

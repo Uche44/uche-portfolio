@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { siteConfig } from "@/lib/data"
 import { fadeInUp, staggerContainer } from "@/lib/animations"
+import { toast } from "sonner"
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -17,50 +18,66 @@ export function ContactSection() {
     subject: "",
     message: "",
   })
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    setIsSubmitting(false)
-    setFormData({ name: "", email: "", subject: "", message: "" })
-    alert("Message sent! I'll get back to you soon.")
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        toast.success("Message sent! I'll get back to you soon.")
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        toast.error(data.error || "Failed to send message. Please try again.")
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
-  
+
   const contactInfo = [
     { icon: Mail, label: "Email", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
     { icon: Phone, label: "Phone", value: siteConfig.phone, href: `tel:${siteConfig.phone}` },
     { icon: MapPin, label: "Location", value: siteConfig.location, href: "#" },
   ]
-  
+
   const socialLinks = [
     { icon: Github, href: siteConfig.social.github, label: "GitHub" },
     { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
     { icon: Twitter, href: siteConfig.social.twitter, label: "Twitter" },
   ]
-  
+
   return (
     <section
       id="contact"
-      className="min-h-screen py-20 lg:py-0 lg:pl-[220px] flex items-center"
+      className="min-h-screen lg:py-0 lg:pl-[220px] flex items-center"
     >
       <div className="container mx-auto px-6 lg:px-12">
         <SectionHeading title="CONTACT" />
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg text-muted-foreground max-w-2xl mb-12"
+          className="text-lg text-muted-foreground max-w-2xl mb-12 md:text-xl"
         >
-          Feel free to contact me! I&apos;m always open to discussing new projects, 
+          Feel free to contact me! I&apos;m always open to discussing new projects,
           creative ideas, or opportunities to be part of your vision.
         </motion.p>
-        
+
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact info */}
           <motion.div
@@ -81,14 +98,16 @@ export function ContactSection() {
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                     <item.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-sm text-muted-foreground">{item.label}</p>
-                    <p className="font-medium text-foreground">{item.value}</p>
+                    <p className="font-medium text-foreground block truncate max-w-[200px] sm:max-w-none sm:overflow-visible sm:whitespace-normal">
+                      {item.value}
+                    </p>
                   </div>
                 </motion.a>
               ))}
             </div>
-            
+
             {/* Social links */}
             <motion.div variants={fadeInUp} className="flex gap-3">
               {socialLinks.map((link) => (
@@ -104,7 +123,7 @@ export function ContactSection() {
               ))}
             </motion.div>
           </motion.div>
-          
+
           {/* Contact form */}
           <motion.form
             initial={{ opacity: 0, y: 30 }}
@@ -138,7 +157,7 @@ export function ContactSection() {
                 />
               </div>
             </div>
-            
+
             <div className="mb-4">
               <label className="block text-sm font-medium mb-2">Subject</label>
               <Input
@@ -150,7 +169,7 @@ export function ContactSection() {
                 placeholder="How can I help?"
               />
             </div>
-            
+
             <div className="mb-6">
               <label className="block text-sm font-medium mb-2">Message</label>
               <textarea
@@ -162,7 +181,6 @@ export function ContactSection() {
                 placeholder="Tell me about your project..."
               />
             </div>
-            
             <Button
               type="submit"
               disabled={isSubmitting}
@@ -186,14 +204,14 @@ export function ContactSection() {
             </Button>
           </motion.form>
         </div>
-        
+
         {/* Footer */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center mt-16 pt-8 border-t border-border"
+          className="text-center mt-10 mb-8 md:mb-0 md:mt-22 pt-8 border-t border-border"
         >
           <p className="text-muted-foreground">Thanks for visiting!</p>
           <p className="text-sm text-muted-foreground/70 mt-1">

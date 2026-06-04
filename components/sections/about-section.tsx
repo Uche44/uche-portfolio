@@ -19,7 +19,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="min-h-screen md:h-screen py-20 lg:py-0 lg:pl-[220px] flex items-center"
+      className="min-h-screen lg:py-0 lg:pl-[220px] flex items-center"
     >
       <div className="container mx-auto px-6 lg:px-12">
         <SectionHeading title="ABOUT ME" />
@@ -29,7 +29,7 @@ export function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg text-muted-foreground max-w-2xl mb-12"
+          className="text-lg text-muted-foreground max-w-2xl mb-12 md:text-xl"
         >
           I&apos;m <span className="text-foreground font-semibold">{siteConfig.name}</span>,{" "}
           a passionate {siteConfig.title} who loves building innovative web applications.
@@ -69,8 +69,8 @@ export function AboutSection() {
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1">{skill.title}</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <h4 className="font-semibold text-foreground mb-1 md:text-xl">{skill.title}</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed md:text-[18px]">
                         {skill.description}
                       </p>
                     </div>
@@ -92,7 +92,7 @@ export function AboutSection() {
               Fun Facts
             </motion.h3>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 md:text-xl">
               {stats.map((stat, index) => (
                 <AnimatedCounter
                   key={stat.label}
