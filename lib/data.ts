@@ -16,8 +16,9 @@ export const siteConfig = {
 export const navItems = [
   { id: "home", label: "Home", icon: "Home" },
   { id: "about", label: "About Me", icon: "User" },
-  { id: "blog", label: "Blog", icon: "FileText" },
   { id: "portfolio", label: "Portfolio", icon: "Briefcase" },
+  { id: "blog", label: "Blog", icon: "FileText" },
+
   // { id: "testimonials", label: "Testimonials", icon: "MessageSquare" },
   { id: "contact", label: "Contact", icon: "Mail" },
 ] as const;
@@ -61,28 +62,40 @@ export const stats = [
 export const blogPosts = [
   {
     id: 1,
+    title: "I Asked My Agent for Notifications. It Gave Me a Server Cost Problem.",
+    excerpt:
+      "A dive in to Server Sent Events and a teeny bit of Polling",
+    image:
+      "/blog/sse.png",
+    date: "Dec 28, 2025",
+    tags: ["Software Engineering", "Server Sent Events", "Polling"],
+    readTime: "5 min read",
+    url: "https://medium.com/@perpetualuchechukwu808/i-asked-my-agent-for-notifications-it-gave-me-a-server-cost-problem-96b9ed257e04",
+  },
+  {
+    id: 2,
     title: "The Browser's Same-Origin Policy",
     excerpt:
       "The Same-Origin Policy (SOP) is a fundamental security mechanism in web browsers that restricts how documents or scripts loaded from one origin can interact with resources from another origin. It is a critical concept for frontend developers to understand, as it governs how web applications can fetch and exchange data across different domains, protocols, and ports.",
     image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
+      "/blog/sop.png",
     date: "Dec 28, 2025",
     tags: ["Web Security", "Browser", "Same-Origin Policy"],
     readTime: "5 min read",
     url: "https://dev.to/perpetual_uche/the-browsers-same-origin-policy-k5g",
   },
-  {
-    id: 2,
-    title: "Understanding Rest APIs",
-    excerpt:
-      "REST (Representational State Transfer) APIs are a standard way for applications to communicate with each other over the internet. They are widely used in web development for building scalable, maintainable, and easy-to-understand systems. In this article, we will explore what REST APIs are, how they work, and why they are so important in modern software development.",
-    image:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
-    date: "Dec 28, 2025",
-    tags: ["Rest API", "Backend development", "Web Development"],
-    readTime: "3 min read",
-    url: "https://medium.com/@perpetualuchechukwu808/understanding-rest-apis-40a525a9fc96",
-  },
+  // {
+  //   id: 2,
+  //   title: "Understanding Rest APIs",
+  //   excerpt:
+  //     "REST (Representational State Transfer) APIs are a standard way for applications to communicate with each other over the internet. They are widely used in web development for building scalable, maintainable, and easy-to-understand systems. In this article, we will explore what REST APIs are, how they work, and why they are so important in modern software development.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
+  //   date: "Dec 28, 2025",
+  //   tags: ["Rest API", "Backend development", "Web Development"],
+  //   readTime: "3 min read",
+  //   url: "https://medium.com/@perpetualuchechukwu808/understanding-rest-apis-40a525a9fc96",
+  // },
   {
     id: 3,
     title: "What I Learned Building a Caching Proxy Server from Scratch",
@@ -101,22 +114,23 @@ export const blogPosts = [
 export const projects = [
   {
     id: 1,
-    title: "Google Developer Group on Campus Website",
+    title: "MiriTankr",
     description:
-      "A community website for Google Developer Group on Campus, University of Nigeria Nsukka (UNN)",
+      "A Digital Platform for Verified Water Delivery and Source Traceability in Enugu State",
     image:
-      "projects/gdg.png",
-    category: "backend",
+      "projects/miritankr.png",
+    category: "Fullstack",
     tags: [
       "Nextjs",
+      "Fastapi",
+      "PayStack",
       "Typescript",
       "Tailwindcss",
-      "Fastapi",
       "PostgreSQL",
       "JWT",
     ],
-    github: "https://github.com",
-    live: "https://gdg-website-topaz-rho.vercel.app",
+    github: "https://github.com/Uche44/miritankr",
+    live: "https://miritankr.vercel.app/",
   },
   {
     id: 2,

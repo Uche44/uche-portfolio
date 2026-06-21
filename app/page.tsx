@@ -86,8 +86,9 @@ export default function PortfolioPage() {
       <main className="relative">
         <HeroSection onNavigate={handleNavigate} />
         <AboutSection />
-        <BlogSection />
         <PortfolioSection />
+        <BlogSection />
+
         {/* <TestimonialsSection /> */}
         <ContactSection />
       </main>
