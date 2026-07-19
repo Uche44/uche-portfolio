@@ -2,13 +2,24 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react"
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Youtube, Instagram } from "lucide-react"
 import { SectionHeading } from "@/components/ui/section-heading"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { siteConfig } from "@/lib/data"
 import { fadeInUp, staggerContainer } from "@/lib/animations"
 import { toast } from "sonner"
+
+const MediumIcon = ({ className, ...props }: React.ComponentProps<"svg">) => (
+  <svg
+    viewBox="0 0 1043.63 592.71"
+    fill="currentColor"
+    className={className}
+    {...props}
+  >
+    <path d="M588.67 296.36c0 163.67-131.78 296.35-294.33 296.35S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 294.33 296.36M911.56 296.36c0 154.06-65.89 279-147.17 279s-147.17-124.94-147.17-279 65.88-279 147.16-279 147.17 124.9 147.17 279M1043.63 296.36c0 138-23.17 249.94-51.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249.94 51.76 111.9 51.76 249.94" />
+  </svg>
+)
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -57,6 +68,9 @@ export function ContactSection() {
     { icon: Github, href: siteConfig.social.github, label: "GitHub" },
     { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
     { icon: Twitter, href: siteConfig.social.twitter, label: "Twitter" },
+    { icon: MediumIcon, href: siteConfig.social.medium, label: "Medium" },
+    { icon: Youtube, href: siteConfig.social.youtube, label: "YouTube" },
+    { icon: Instagram, href: siteConfig.social.instagram, label: "Instagram" },
   ]
 
   return (

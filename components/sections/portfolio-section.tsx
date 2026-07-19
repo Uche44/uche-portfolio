@@ -1,7 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { SectionHeading } from "@/components/ui/section-heading"
 import { ProjectCard } from "@/components/ui/project-card"
 import { projects, portfolioFilters } from "@/lib/data"
@@ -9,10 +10,37 @@ import { cn } from "@/lib/utils"
 
 export function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState("all")
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(6)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setItemsPerPage(6) // 3 columns -> 6 items is 2 rows
+      } else if (window.innerWidth >= 768) {
+        setItemsPerPage(4) // 2 columns -> 4 items is 2 rows
+      } else {
+        setItemsPerPage(2) // 1 column -> 2 items is 2 rows
+      }
+    }
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  // Reset to first page when filtering or grid columns change
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [activeFilter, itemsPerPage])
 
   const filteredProjects = activeFilter === "all"
     ? projects
     : projects.filter(p => p.category === activeFilter)
+
+  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const paginatedProjects = filteredProjects.slice(startIndex, endIndex)
 
   return (
     <section
@@ -55,7 +83,7 @@ export function PortfolioSection() {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
+            {paginatedProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 layout
@@ -71,12 +99,55 @@ export function PortfolioSection() {
                   tags={project.tags}
                   github={project.github}
                   live={project.live}
+                  demo={(project as any).demo}
                   index={index}
                 />
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Pagination controls */}
+        {totalPages > 1 && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center justify-center gap-2 mt-12 pb-10"
+          >
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="p-2 rounded-lg bg-card border border-border text-muted-foreground hover:text-foreground hover:bg-muted disabled:opacity-30 disabled:hover:bg-card disabled:hover:text-muted-foreground transition-all duration-200 cursor-pointer"
+              title="Previous Page"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                className={cn(
+                  "w-10 h-10 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer",
+                  currentPage === page
+                    ? "bg-primary text-primary-foreground shadow-md"
+                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:bg-muted"
+                )}
+              >
+                {page}
+              </button>
+            ))}
+
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="p-2 rounded-lg bg-card border border-border text-muted-foreground hover:text-foreground hover:bg-muted disabled:opacity-30 disabled:hover:bg-card disabled:hover:text-muted-foreground transition-all duration-200 cursor-pointer"
+              title="Next Page"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   )

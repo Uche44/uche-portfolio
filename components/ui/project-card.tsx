@@ -12,6 +12,7 @@ interface ProjectCardProps {
   tags: string[]
   github?: string
   live?: string
+  demo?: string
   className?: string
   index?: number
 }
@@ -23,6 +24,7 @@ export function ProjectCard({
   tags, 
   github, 
   live,
+  demo,
   className,
   index = 0 
 }: ProjectCardProps) {
@@ -65,7 +67,7 @@ export function ProjectCard({
             </div>
             
             {/* Action buttons */}
-            <div className="flex gap-3">
+            <div className="flex gap-3 items-center">
               {github && (
                 <a
                   href={github}
@@ -73,6 +75,7 @@ export function ProjectCard({
                   rel="noopener noreferrer"
                   className="p-2 rounded-full bg-card text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
                   onClick={(e) => e.stopPropagation()}
+                  title="View GitHub Repository"
                 >
                   <Github className="w-5 h-5" />
                 </a>
@@ -84,8 +87,20 @@ export function ProjectCard({
                   rel="noopener noreferrer"
                   className="p-2 rounded-full bg-card text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
                   onClick={(e) => e.stopPropagation()}
+                  title="View Live Site"
                 >
                   <ExternalLink className="w-5 h-5" />
+                </a>
+              )}
+              {demo && (
+                <a
+                  href={demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-9 px-4 rounded-full bg-card text-foreground hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center text-sm font-medium"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Watch Demo
                 </a>
               )}
             </div>

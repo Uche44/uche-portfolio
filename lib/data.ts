@@ -10,6 +10,8 @@ export const siteConfig = {
     linkedin: "https://linkedin.com/in/perpetual-asogwa",
     twitter: "https://twitter.com/perpetualuchec5",
     medium: "https://medium.com/@perpetualuchechukwu808",
+    youtube: "https://www.youtube.com/@Perpetual_dev",
+    instagram: "https://www.instagram.com/perpetualuc5/",
   },
 };
 
@@ -117,8 +119,7 @@ export const projects = [
     title: "MiriTankr",
     description:
       "A Digital Platform for Verified Water Delivery and Source Traceability in Enugu State",
-    image:
-      "projects/miritankr.png",
+    image: "projects/miritankr.png",
     category: "Fullstack",
     tags: [
       "Nextjs",
@@ -131,21 +132,15 @@ export const projects = [
     ],
     github: "https://github.com/Uche44/miritankr",
     live: "https://miritankr.vercel.app/",
+    demo: "https://www.youtube.com/watch?v=Hy8oHXE292Y",
   },
   {
     id: 2,
     title: "Mentor Connect",
-    description:
-      "A mentorship platform for students and professionals",
-    image:
-      "projects/mentor.png",
+    description: "A mentorship platform for students and professionals",
+    image: "projects/mentor.png",
     category: "fullstack",
-    tags: [
-      "HTML",
-      "CSS",
-      "Javascript",
-      "json server"
-    ],
+    tags: ["HTML", "CSS", "Javascript", "json server"],
     github: "https://github.com/Uche44/MentorConnect",
     live: "https://mentor-connect-ochre-six.vercel.app/index.html",
   },
@@ -154,8 +149,7 @@ export const projects = [
     title: "DialExperts",
     description:
       "A micro-consultation platform that connects users with verified experts across any field for short, pay-per-minute calls",
-    image:
-      "projects/dialexpert.png",
+    image: "projects/dialexpert.png",
     category: "fullstack",
     tags: [
       "Nextjs",
@@ -168,14 +162,14 @@ export const projects = [
 
     github: "https://github.com/Uche44/dial-experts",
     live: "https://dial-experts-seven.vercel.app/",
+    // demo: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
   {
     id: 4,
     title: "Stellar Agentpay Protocol",
     description:
       "A landing page for the stellar agentpay protocol that fully communicates their goals, services and values.",
-    image:
-      "projects/agent.png",
+    image: "projects/agent.png",
     category: "frontend",
     tags: ["Nextjs", "Typescript", "TailwindCSS"],
     github: "https://github.com/Uche44/stellar-agentpay-protocol",
@@ -275,6 +269,6 @@ export const portfolioFilters = [
   { id: "all", label: "All" },
   { id: "fullstack", label: "Fullstack" },
   { id: "frontend", label: "Frontend" },
-  { id: "backend", label: "Backend" },
+  // { id: "backend", label: "Backend" },
   // { id: "ai", label: "AI" },
 ] as const;
