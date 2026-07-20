@@ -160,12 +160,11 @@ export const projects = [
     category: ["web3", "fullstack", "frontend", "backend"],
     tags: [
       "Nextjs",
-      "Fastapi",
-      "PayStack",
+      "Prisma",
+      "Viem",
       "Typescript",
       "Tailwindcss",
       "PostgreSQL",
-      "JWT",
     ],
     github: "https://github.com/Uche44/q-rep",
     live: "https://qie-reputation.vercel.app/",
@@ -190,11 +189,11 @@ export const projects = [
     category: ["fullstack", "frontend", "backend", "web3"],
     tags: [
       "Nextjs",
+      "Solana Wallet Adapter",
       "Prisma",
       "PostgreSQL",
       "Tailwindcss",
       "Typescript",
-      "JWT",
     ],
 
     github: "https://github.com/Uche44/dial-experts",
