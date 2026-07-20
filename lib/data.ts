@@ -64,11 +64,10 @@ export const stats = [
 export const blogPosts = [
   {
     id: 1,
-    title: "I Asked My Agent for Notifications. It Gave Me a Server Cost Problem.",
-    excerpt:
-      "A dive in to Server Sent Events and a teeny bit of Polling",
-    image:
-      "/blog/sse.png",
+    title:
+      "I Asked My Agent for Notifications. It Gave Me a Server Cost Problem.",
+    excerpt: "A dive in to Server Sent Events and a teeny bit of Polling",
+    image: "/blog/sse.png",
     date: "Dec 28, 2025",
     tags: ["Software Engineering", "Server Sent Events", "Polling"],
     readTime: "5 min read",
@@ -79,8 +78,7 @@ export const blogPosts = [
     title: "The Browser's Same-Origin Policy",
     excerpt:
       "The Same-Origin Policy (SOP) is a fundamental security mechanism in web browsers that restricts how documents or scripts loaded from one origin can interact with resources from another origin. It is a critical concept for frontend developers to understand, as it governs how web applications can fetch and exchange data across different domains, protocols, and ports.",
-    image:
-      "/blog/sop.png",
+    image: "/blog/sop.png",
     date: "Dec 28, 2025",
     tags: ["Web Security", "Browser", "Same-Origin Policy"],
     readTime: "5 min read",
@@ -110,7 +108,6 @@ export const blogPosts = [
     readTime: "4 min read",
     url: "https://medium.com/@perpetualuchechukwu808/what-i-learned-building-a-caching-proxy-server-from-scratch-17a29deedb0f",
   },
-
 ];
 
 export const projects = [
@@ -120,7 +117,7 @@ export const projects = [
     description:
       "A Digital Platform for Verified Water Delivery and Source Traceability in Enugu State",
     image: "projects/miritankr.png",
-    category: "Fullstack",
+    category: ["fullstack"],
     tags: [
       "Nextjs",
       "Fastapi",
@@ -136,53 +133,12 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Mentor Connect",
-    description: "A mentorship platform for students and professionals",
-    image: "projects/mentor.png",
-    category: "fullstack",
-    tags: ["HTML", "CSS", "Javascript", "json server"],
-    github: "https://github.com/Uche44/MentorConnect",
-    live: "https://mentor-connect-ochre-six.vercel.app/index.html",
-  },
-  {
-    id: 3,
-    title: "DialExperts",
-    description:
-      "A micro-consultation platform that connects users with verified experts across any field for short, pay-per-minute calls",
-    image: "projects/dialexpert.png",
-    category: "fullstack",
-    tags: [
-      "Nextjs",
-      "Prisma",
-      "PostgreSQL",
-      "Tailwindcss",
-      "Typescript",
-      "JWT",
-    ],
-
-    github: "https://github.com/Uche44/dial-experts",
-    live: "https://dial-experts-seven.vercel.app/",
-    // demo: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-  },
-  {
-    id: 4,
-    title: "Stellar Agentpay Protocol",
-    description:
-      "A landing page for the stellar agentpay protocol that fully communicates their goals, services and values.",
-    image: "projects/agent.png",
-    category: "frontend",
-    tags: ["Nextjs", "Typescript", "TailwindCSS"],
-    github: "https://github.com/Uche44/stellar-agentpay-protocol",
-    live: "https://agentpay-protocol-gamma.vercel.app/",
-  },
-  {
-    id: 5,
     title: "UniTrack",
     description:
       "A university platform that streamlines final year project management, supervision and reporting between students, their supervisors and departmental admin.",
     image:
       "https://res.cloudinary.com/dcw1m1rak/image/upload/v1764149109/encode_-_Brave_11_12_2025_3_53_58_PM_yidokk.png",
-    category: "fullstack",
+    category: ["fullstack", "frontend", "backend"],
     tags: [
       "React",
       "Typescript",
@@ -197,25 +153,86 @@ export const projects = [
     live: "https://unitrack-two.vercel.app/",
   },
   {
+    id: 3,
+    title: "QIE Reputation",
+    description: "A reputation and Talent Layer for the QIE Ecosystem",
+    image: "projects/qie.png",
+    category: ["web3", "fullstack", "frontend", "backend"],
+    tags: [
+      "Nextjs",
+      "Fastapi",
+      "PayStack",
+      "Typescript",
+      "Tailwindcss",
+      "PostgreSQL",
+      "JWT",
+    ],
+    github: "https://github.com/Uche44/q-rep",
+    live: "https://qie-reputation.vercel.app/",
+    demo: "https://www.youtube.com/watch?v=rDCpcwx8W2k&t=195s",
+  },
+  {
+    id: 4,
+    title: "Mentor Connect",
+    description: "A mentorship platform for students and professionals",
+    image: "projects/mentor.png",
+    category: ["fullstack"],
+    tags: ["HTML", "CSS", "Javascript", "json server"],
+    github: "https://github.com/Uche44/MentorConnect",
+    live: "https://mentor-connect-ochre-six.vercel.app/index.html",
+  },
+  {
+    id: 5,
+    title: "DialExperts",
+    description:
+      "A micro-consultation platform that connects users with verified experts across any field for short, pay-per-minute calls",
+    image: "projects/dialexpert.png",
+    category: ["fullstack", "frontend", "backend", "web3"],
+    tags: [
+      "Nextjs",
+      "Prisma",
+      "PostgreSQL",
+      "Tailwindcss",
+      "Typescript",
+      "JWT",
+    ],
+
+    github: "https://github.com/Uche44/dial-experts",
+    live: "https://dial-experts-seven.vercel.app/",
+    // demo: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  },
+  {
     id: 6,
+    title: "Stellar Agentpay Protocol",
+    description:
+      "A landing page for the stellar agentpay protocol that fully communicates their goals, services and values.",
+    image: "projects/agent.png",
+    category: ["frontend", "web3"],
+    tags: ["Nextjs", "Typescript", "TailwindCSS"],
+    github: "https://github.com/Uche44/stellar-agentpay-protocol",
+    live: "https://agentpay-protocol-gamma.vercel.app/",
+  },
+
+  {
+    id: 7,
     title: "Task Management App",
     description:
       "A task management app with offline storage, helping you organize tasks and stay productive anytime.",
     image:
       "https://res.cloudinary.com/dcw1m1rak/image/upload/v1762256128/too-doo_vgdo0i.png",
-    category: "frontend",
+    category: ["frontend"],
     tags: ["React", "Typescript", "TailwindCSS", "IndexedDb"],
     github: "https://github.com/Uche44/TooDoo",
     live: "https://too-doo-rouge.vercel.app/",
   },
   {
-    id: 7,
+    id: 8,
     title: "Logicraft Landing Page",
     description:
       "A landing page for a cargo and shipment company that fully communicates their goals, services and values.",
     image:
       "https://res.cloudinary.com/dcw1m1rak/image/upload/v1764523090/Perpetual_A._-_Frontend_web_developer_-_Upwork_Freelancer_from_Suleja_Nigeria_-_Brave_10_29_2025_2_59_53_PM_k4oatf.png",
-    category: "frontend",
+    category: ["frontend"],
     tags: ["React", "Tailwindcss"],
     github: "https://github.com/Uche44/logicraft",
     live: "https://logicraft-rho.vercel.app/",
@@ -269,6 +286,6 @@ export const portfolioFilters = [
   { id: "all", label: "All" },
   { id: "fullstack", label: "Fullstack" },
   { id: "frontend", label: "Frontend" },
-  // { id: "backend", label: "Backend" },
-  // { id: "ai", label: "AI" },
+  { id: "backend", label: "Backend" },
+  { id: "web3", label: "web3" },
 ] as const;
