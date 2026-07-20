@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github, Play } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface ProjectCardProps {
@@ -67,17 +67,17 @@ export function ProjectCard({
             </div>
             
             {/* Action buttons */}
-            <div className="flex gap-3 items-center">
+            <div className="flex flex-wrap gap-2.5 items-center">
               {github && (
                 <a
                   href={github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-card text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                  className="px-3.5 py-2 rounded-full bg-card text-foreground hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1.5 text-xs font-medium"
                   onClick={(e) => e.stopPropagation()}
-                  title="View GitHub Repository"
                 >
-                  <Github className="w-5 h-5" />
+                  <Github className="w-4 h-4" />
+                  View Code
                 </a>
               )}
               {live && (
@@ -85,11 +85,11 @@ export function ProjectCard({
                   href={live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-card text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                  className="px-3.5 py-2 rounded-full bg-card text-foreground hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1.5 text-xs font-medium"
                   onClick={(e) => e.stopPropagation()}
-                  title="View Live Site"
                 >
-                  <ExternalLink className="w-5 h-5" />
+                  <ExternalLink className="w-4 h-4" />
+                  View Live
                 </a>
               )}
               {demo && (
@@ -97,9 +97,10 @@ export function ProjectCard({
                   href={demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-9 px-4 rounded-full bg-card text-foreground hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center text-sm font-medium"
+                  className="px-3.5 py-2 rounded-full bg-card text-foreground hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1.5 text-xs font-medium"
                   onClick={(e) => e.stopPropagation()}
                 >
+                  <Play className="w-3.5 h-3.5 fill-current" />
                   Watch Demo
                 </a>
               )}
