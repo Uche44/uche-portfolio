@@ -6,9 +6,9 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "Perpetual Asogwa | Fullstack Developer Portfolio",
+  title: "Perpetual Asogwa | Fullstack Engineer Portfolio",
   description:
-    "Creative fullstack developer specializing in building exceptional digital experiences with modern technologies.",
+    "Creative fullstack engineer specializing in building exceptional digital experiences with modern technologies.",
   icons: {
     icon: [
       {

@@ -116,11 +116,16 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               className="flex flex-wrap gap-4"
             >
               <Button
-                onClick={() => onNavigate("portfolio")}
+                asChild
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full font-medium md:text-[18px] cursor-pointer"
               >
-                View Projects
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <a
+                  href="/Perpetual Asogwa Resume.pdf"
+                  download="Perpetual Asogwa Resume.pdf"
+                >
+                  Download Resume
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </a>
               </Button>
               <Button
                 onClick={() => onNavigate("contact")}

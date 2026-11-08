@@ -36,18 +36,9 @@ export function PortfolioSection() {
   const filteredProjects =
     activeFilter === "all"
       ? projects
-      : projects.filter((p) => {
-          const cat = p.category;
-          if (Array.isArray(cat)) {
-            return cat.some(
-              (c) => c.toLowerCase() === activeFilter.toLowerCase(),
-            );
-          }
-          return (
-            typeof cat === "string" &&
-            cat.toLowerCase() === activeFilter.toLowerCase()
-          );
-        });
+      : projects.filter((p) => p.category.some(
+          (c) => c.toLowerCase() === activeFilter.toLowerCase(),
+        ));
 
   const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;

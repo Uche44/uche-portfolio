@@ -1,7 +1,7 @@
 // Portfolio data and content
 export const siteConfig = {
   name: "Perpetual Asogwa",
-  title: "Fullstack Developer | Technical Writer",
+  title: "Fullstack Engineer | Technical Writer",
   email: "perpetualuchechukwu808@gmail.com",
   phone: "+234 (913) 660-1904",
   location: "Enugu, Nigeria",

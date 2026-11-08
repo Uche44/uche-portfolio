@@ -92,7 +92,7 @@ export function MobileNav({ activeSection, onNavigate }: MobileNavProps) {
                   />
                 </div>
                 <h3 className="font-display text-xl text-sidebar-foreground">PERPETUAL ASOGWA</h3>
-                <p className="text-sm text-sidebar-foreground/70">Fullstack Developer</p>
+                <p className="text-sm text-sidebar-foreground/70">Fullstack Engineer</p>
               </div>
 
               {/* Navigation */}
