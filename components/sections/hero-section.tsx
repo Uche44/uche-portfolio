@@ -13,7 +13,7 @@ import {
   MessageSquare,
   Mail,
 } from "lucide-react";
-import { siteConfig } from "@/lib/data";
+import { heroHighlights, siteConfig } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { anton, bebasNeue } from "@/app/fonts";
 
@@ -109,6 +109,22 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               amazing together.
             </motion.p>
 
+            <motion.ul
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="mb-8 flex flex-wrap items-center gap-2"
+            >
+              {heroHighlights.map((highlight) => (
+                <li
+                  key={highlight}
+                  className="rounded-full bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm md:text-sm"
+                >
+                  {highlight}
+                </li>
+              ))}
+            </motion.ul>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -128,6 +144,16 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
                 className="border-foreground text-foreground hover:bg-foreground hover:text-background px-6 py-3 rounded-full font-medium md:text-[18px] cursor-pointer"
               >
                 Contact Me
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="border-foreground text-foreground hover:bg-foreground hover:text-background px-6 py-3 rounded-full font-medium md:text-[18px] cursor-pointer"
+              >
+                <a href={siteConfig.resumeUrl} download>
+                  Resume
+                  <Download className="w-4 h-4" />
+                </a>
               </Button>
             </motion.div>
           </motion.div>

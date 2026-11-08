@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Home, User, FileText, Briefcase, MessageSquare, Mail } from "lucide-react"
+import { Home, User, FileText, Briefcase, MessageSquare, Mail, Trophy, Mic } from "lucide-react"
 import { navItems } from "@/lib/data"
 import { cn } from "@/lib/utils"
 
@@ -12,6 +12,8 @@ const iconMap = {
   Briefcase,
   MessageSquare,
   Mail,
+  Trophy,
+  Mic,
 }
 
 interface RightNavProps {

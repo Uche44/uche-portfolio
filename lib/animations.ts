@@ -1,10 +1,20 @@
 "use client"
 
-import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion"
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useInView,
+  type UseScrollOptions,
+  type Variants,
+} from "framer-motion"
 import { useRef, useEffect, useState } from "react"
 
 // Hook for scroll-linked animations
-export function useScrollAnimation(offset: [string, string] = ["start end", "end start"]) {
+export function useScrollAnimation(
+  offset: UseScrollOptions["offset"] = ["start end", "end start"]
+) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -53,7 +63,7 @@ export const springConfig = {
 }
 
 // Animation variants
-export const fadeInUp = {
+export const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { 
     opacity: 1, 
@@ -62,7 +72,7 @@ export const fadeInUp = {
   },
 }
 
-export const fadeIn = {
+export const fadeIn: Variants = {
   hidden: { opacity: 0 },
   visible: { 
     opacity: 1,
@@ -70,7 +80,7 @@ export const fadeIn = {
   },
 }
 
-export const staggerContainer = {
+export const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -81,7 +91,7 @@ export const staggerContainer = {
   },
 }
 
-export const scaleIn = {
+export const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { 
     opacity: 1, 
@@ -90,7 +100,7 @@ export const scaleIn = {
   },
 }
 
-export const slideInLeft = {
+export const slideInLeft: Variants = {
   hidden: { opacity: 0, x: -50 },
   visible: { 
     opacity: 1, 
@@ -99,7 +109,7 @@ export const slideInLeft = {
   },
 }
 
-export const slideInRight = {
+export const slideInRight: Variants = {
   hidden: { opacity: 0, x: 50 },
   visible: { 
     opacity: 1, 

@@ -8,12 +8,14 @@ import { RightNav } from "@/components/layout/right-nav"
 import { MobileNav } from "@/components/layout/mobile-nav"
 import { HeroSection } from "@/components/sections/hero-section"
 import { AboutSection } from "@/components/sections/about-section"
+import { RecognitionSection } from "@/components/sections/recognition-section"
 import { BlogSection } from "@/components/sections/blog-section"
 import { PortfolioSection } from "@/components/sections/portfolio-section"
+import { SpeakingSection } from "@/components/sections/speaking-section"
 // import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { ContactSection } from "@/components/sections/contact-section"
 
-const sections = ["home", "about", "blog", "portfolio", "testimonials", "contact"]
+const sections = ["home", "about", "recognition", "portfolio", "speaking", "blog", "contact"]
 
 export default function PortfolioPage() {
   const [activeSection, setActiveSection] = useState("home")
@@ -86,7 +88,9 @@ export default function PortfolioPage() {
       <main className="relative">
         <HeroSection onNavigate={handleNavigate} />
         <AboutSection />
+        <RecognitionSection />
         <PortfolioSection />
+        <SpeakingSection />
         <BlogSection />
 
         {/* <TestimonialsSection /> */}

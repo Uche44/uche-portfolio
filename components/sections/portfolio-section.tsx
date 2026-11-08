@@ -5,13 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ProjectCard } from "@/components/ui/project-card";
-import { projects, portfolioFilters } from "@/lib/data";
+import { Lightbox } from "@/components/ui/lightbox";
+import { projects, portfolioFilters, type Project } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(6);
+  const [activeDemo, setActiveDemo] = useState<Project | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,19 +37,14 @@ export function PortfolioSection() {
 
   const filteredProjects =
     activeFilter === "all"
-      ? projects
-      : projects.filter((p) => {
-          const cat = p.category;
-          if (Array.isArray(cat)) {
-            return cat.some(
-              (c) => c.toLowerCase() === activeFilter.toLowerCase(),
-            );
-          }
-          return (
-            typeof cat === "string" &&
-            cat.toLowerCase() === activeFilter.toLowerCase()
-          );
-        });
+      ? [...projects].sort(
+          (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)),
+        )
+      : projects.filter((p) =>
+          p.category.some(
+            (c) => c.toLowerCase() === activeFilter.toLowerCase(),
+          ),
+        );
 
   const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -128,7 +125,8 @@ export function PortfolioSection() {
                   tags={project.tags}
                   github={project.github}
                   live={project.live}
-                  demo={(project as any).demo}
+                  demo={project.demo}
+                  onPlayDemo={() => setActiveDemo(project)}
                   index={index}
                 />
               </motion.div>
@@ -180,6 +178,29 @@ export function PortfolioSection() {
           </motion.div>
         )}
       </div>
+
+      <Lightbox
+        item={
+          activeDemo?.demo
+            ? {
+                kind: "video",
+                src: activeDemo.demo,
+                title: activeDemo.title,
+                description: activeDemo.description,
+                meta: activeDemo.tags.join(" · "),
+                links: [
+                  ...(activeDemo.live
+                    ? [{ label: "View Live", href: activeDemo.live }]
+                    : []),
+                  ...(activeDemo.github
+                    ? [{ label: "View Code", href: activeDemo.github }]
+                    : []),
+                ],
+              }
+            : null
+        }
+        onClose={() => setActiveDemo(null)}
+      />
     </section>
   );
 }

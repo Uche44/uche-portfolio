@@ -13,6 +13,7 @@ interface ProjectCardProps {
   github?: string
   live?: string
   demo?: string
+  onPlayDemo?: () => void
   className?: string
   index?: number
 }
@@ -25,6 +26,7 @@ export function ProjectCard({
   github, 
   live,
   demo,
+  onPlayDemo,
   className,
   index = 0 
 }: ProjectCardProps) {
@@ -47,6 +49,13 @@ export function ProjectCard({
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
+
+        {demo && (
+          <div className="absolute left-3 top-3 z-10 flex items-center gap-1 rounded-full bg-primary px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-primary-foreground shadow-md">
+            <Play className="h-3 w-3 fill-current" />
+            Demo
+          </div>
+        )}
         
         {/* Overlay - always visible on mobile, hover-only on large screens */}
         <div className="absolute inset-0 bg-foreground/80 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -92,7 +101,20 @@ export function ProjectCard({
                   View Live
                 </a>
               )}
-              {demo && (
+              {demo && onPlayDemo && (
+                <button
+                  type="button"
+                  className="px-3.5 py-2 rounded-full bg-card text-foreground hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1.5 text-xs font-medium"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    onPlayDemo()
+                  }}
+                >
+                  <Play className="w-3.5 h-3.5 fill-current" />
+                  Watch Demo
+                </button>
+              )}
+              {demo && !onPlayDemo && (
                 <a
                   href={demo}
                   target="_blank"

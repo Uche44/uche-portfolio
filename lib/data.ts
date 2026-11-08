@@ -1,10 +1,54 @@
 // Portfolio data and content
+
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  category: string[];
+  tags: string[];
+  github?: string;
+  live?: string;
+  demo?: string;
+  featured?: boolean;
+}
+
+export interface Achievement {
+  id: number;
+  title: string;
+  type: "hackathon" | "award" | "certification" | "open-source";
+  placement?: string;
+  project?: string;
+  date: string;
+  location?: string;
+  description: string;
+  link?: string;
+  image?: string;
+}
+
+export interface SpeakingEngagement {
+  id: number;
+  talkTitle: string;
+  event: string;
+  date: string;
+  location?: string;
+  audienceSize?: string;
+  image: string;
+  imageAlt: string;
+  width: number;
+  height: number;
+  videoUrl?: string;
+  slidesUrl?: string;
+  description?: string;
+}
+
 export const siteConfig = {
   name: "Perpetual Asogwa",
   title: "Fullstack Developer | Technical Writer",
   email: "perpetualuchechukwu808@gmail.com",
   phone: "+234 (913) 660-1904",
   location: "Enugu, Nigeria",
+  resumeUrl: "/resume.pdf",
   social: {
     github: "https://github.com/Uche44",
     linkedin: "https://linkedin.com/in/perpetual-asogwa",
@@ -18,12 +62,25 @@ export const siteConfig = {
 export const navItems = [
   { id: "home", label: "Home", icon: "Home" },
   { id: "about", label: "About Me", icon: "User" },
+  { id: "recognition", label: "Recognition", icon: "Trophy" },
   { id: "portfolio", label: "Portfolio", icon: "Briefcase" },
+  { id: "speaking", label: "Speaking", icon: "Mic" },
   { id: "blog", label: "Blog", icon: "FileText" },
-
-  // { id: "testimonials", label: "Testimonials", icon: "MessageSquare" },
   { id: "contact", label: "Contact", icon: "Mail" },
 ] as const;
+
+export const heroHighlights = [
+  "10+ Projects Shipped",
+  "600+ GitHub Commits",
+  "5 Articles Published",
+  "1st Place, [Hackathon Name]",
+];
+
+export const currently = {
+  building: "A reputation layer for the QIE ecosystem, plus this portfolio.",
+  learning: "Systems design — writing up what I learn as I go.",
+  openTo: "Fullstack and backend roles, contract work, and speaking slots.",
+};
 
 export const skills = [
   {
@@ -110,13 +167,13 @@ export const blogPosts = [
   },
 ];
 
-export const projects = [
+export const projects: Project[] = [
   {
     id: 1,
     title: "MiriTankr",
     description:
       "A Digital Platform for Verified Water Delivery and Source Traceability in Enugu State",
-    image: "projects/miritankr.png",
+    image: "/projects/miritankr.png",
     category: ["fullstack"],
     tags: [
       "Nextjs",
@@ -127,6 +184,7 @@ export const projects = [
       "PostgreSQL",
       "JWT",
     ],
+    featured: true,
     github: "https://github.com/Uche44/miritankr",
     live: "https://miritankr.vercel.app/",
     demo: "https://www.youtube.com/watch?v=Hy8oHXE292Y",
@@ -149,6 +207,7 @@ export const projects = [
       "JWT",
       "Zustand",
     ],
+    featured: true,
     github: "https://github.com/Uche44/unitrack-frontend",
     live: "https://unitrack-two.vercel.app/",
   },
@@ -156,7 +215,7 @@ export const projects = [
     id: 3,
     title: "QIE Reputation",
     description: "A reputation and Talent Layer for the QIE Ecosystem",
-    image: "projects/qie.png",
+    image: "/projects/qie.png",
     category: ["web3", "fullstack", "frontend", "backend"],
     tags: [
       "Nextjs",
@@ -166,6 +225,7 @@ export const projects = [
       "Tailwindcss",
       "PostgreSQL",
     ],
+    featured: true,
     github: "https://github.com/Uche44/q-rep",
     live: "https://qie-reputation.vercel.app/",
     demo: "https://www.youtube.com/watch?v=rDCpcwx8W2k&t=195s",
@@ -174,7 +234,7 @@ export const projects = [
     id: 4,
     title: "Mentor Connect",
     description: "A mentorship platform for students and professionals",
-    image: "projects/mentor.png",
+    image: "/projects/mentor.png",
     category: ["fullstack"],
     tags: ["HTML", "CSS", "Javascript", "json server"],
     github: "https://github.com/Uche44/MentorConnect",
@@ -185,7 +245,7 @@ export const projects = [
     title: "DialExperts",
     description:
       "A micro-consultation platform that connects users with verified experts across any field for short, pay-per-minute calls",
-    image: "projects/dialexpert.png",
+    image: "/projects/dialexpert.png",
     category: ["fullstack", "frontend", "backend", "web3"],
     tags: [
       "Nextjs",
@@ -205,7 +265,7 @@ export const projects = [
     title: "Stellar Agentpay Protocol",
     description:
       "A landing page for the stellar agentpay protocol that fully communicates their goals, services and values.",
-    image: "projects/agent.png",
+    image: "/projects/agent.png",
     category: ["frontend", "web3"],
     tags: ["Nextjs", "Typescript", "TailwindCSS"],
     github: "https://github.com/Uche44/stellar-agentpay-protocol",
@@ -238,6 +298,148 @@ export const projects = [
   },
 ];
 
+// PLACEHOLDER DATA — replace every entry before deploying.
+// Rule: each entry needs a name, a date, and a link. Delete anything you cannot verify.
+export const achievements: Achievement[] = [
+  {
+    id: 1,
+    title: "Wema Bank Hackaholics Startup Pitch Competition, Enugu Edition",
+    type: "hackathon",
+    placement: "1st Place, Women Led Category",
+    project: "MiriTankr",
+    date: "2026-10-16",
+    location: "Enugu",
+    description: "What you built inside the time limit and the outcome it earned.",
+    link: "https://github.com/Uche44/miritankr",
+  },
+  {
+    id: 2,
+    title: "[Pitch or Demo Day Name]",
+    type: "award",
+    placement: "Runner-up",
+    project: "QIE Reputation",
+    date: "2026-05-09",
+    location: "[City]",
+    description: "Who gave the award and what won it.",
+    link: "https://qie-reputation.vercel.app/",
+  },
+  {
+    id: 3,
+    title: "[Grant or Fellowship Name]",
+    type: "award",
+    placement: "Grant Recipient",
+    date: "2026-01-20",
+    description: "What the grant funded and what shipped as a result.",
+  },
+  {
+    id: 4,
+    title: "[Certification Name]",
+    type: "certification",
+    date: "2025-11-03",
+    location: "[Issuer]",
+    description: "What the credential covers.",
+  },
+  {
+    id: 5,
+    title: "[Certification Name]",
+    type: "certification",
+    date: "2025-09-12",
+    location: "[Issuer]",
+    description: "What the credential covers.",
+  },
+  {
+    id: 6,
+    title: "Open Source Contribution",
+    type: "open-source",
+    placement: "Merged PR",
+    project: "[Repository]",
+    date: "2025-06-14",
+    description: "What the change did and why it was merged.",
+    link: "https://github.com/Uche44",
+  },
+];
+
+// PLACEHOLDER DATA — swap in real talks and photos from public/speaking/.
+// Replace placeholder-N.webp with compressed WebP photos (long edge <= 1600px, under ~250KB).
+// Add videoUrl once a recording is uploaded; entries without it open as images.
+export const speakingEngagements: SpeakingEngagement[] = [
+  {
+    id: 1,
+    talkTitle: "[Talk title]",
+    event: "[Event name]",
+    date: "2026-09-12",
+    location: "[City]",
+    audienceSize: "200+ attendees",
+    image: "/speaking/placeholder-1.webp",
+    imageAlt: "Speaking about [topic] at [event]",
+    width: 1080,
+    height: 1350,
+    description: "One line on what the talk covered.",
+  },
+  {
+    id: 2,
+    talkTitle: "[Talk title]",
+    event: "[Event name]",
+    date: "2026-07-04",
+    location: "[City]",
+    image: "/speaking/placeholder-2.webp",
+    imageAlt: "Answering questions after [talk] at [event]",
+    width: 1600,
+    height: 900,
+    description: "One line on what the talk covered.",
+  },
+  {
+    id: 3,
+    talkTitle: "[Talk title]",
+    event: "[Event name]",
+    date: "2026-04-18",
+    location: "[City]",
+    audienceSize: "80+ attendees",
+    image: "/speaking/placeholder-3.webp",
+    imageAlt: "On stage during [talk] at [event]",
+    width: 1080,
+    height: 1080,
+    description: "One line on what the talk covered.",
+  },
+  {
+    id: 4,
+    talkTitle: "[Talk title]",
+    event: "[Event name]",
+    date: "2026-02-22",
+    location: "[City]",
+    image: "/speaking/placeholder-4.webp",
+    imageAlt: "Audience at [event] during the [talk] session",
+    width: 1200,
+    height: 1600,
+    description: "One line on what the talk covered.",
+  },
+  {
+    id: 5,
+    talkTitle: "[Talk title]",
+    event: "[Event name]",
+    date: "2025-11-08",
+    location: "[City]",
+    image: "/speaking/placeholder-5.webp",
+    imageAlt: "Panel discussion at [event]",
+    width: 1600,
+    height: 900,
+    description: "One line on what the talk covered.",
+  },
+  {
+    id: 6,
+    talkTitle: "[Talk title]",
+    event: "[Event name]",
+    date: "2025-08-30",
+    location: "[City]",
+    image: "/speaking/placeholder-6.webp",
+    imageAlt: "Hosting a workshop at [event]",
+    width: 1080,
+    height: 1350,
+    description: "One line on what the talk covered.",
+  },
+];
+
+// PLACEHOLDER — names and quotes are dummy data. Replace before enabling TestimonialsSection.
 export const testimonials = [
   {
     id: 1,

@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Monitor, Server, Database, Palette, Zap } from "lucide-react"
-import { SectionHeading } from "@/components/ui/section-heading"
-import { AnimatedCounter } from "@/components/ui/animated-counter"
-import { skills, stats, siteConfig } from "@/lib/data"
-import { staggerContainer, fadeInUp } from "@/lib/animations"
+import { motion } from "framer-motion";
+import { Monitor, Server, Database, Palette, Zap } from "lucide-react";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
+import { skills, stats, siteConfig, currently } from "@/lib/data";
+import { staggerContainer, fadeInUp } from "@/lib/animations";
 
 const iconMap = {
   Monitor,
@@ -13,7 +13,7 @@ const iconMap = {
   Database,
   Palette,
   Zap,
-}
+};
 
 export function AboutSection() {
   return (
@@ -29,11 +29,15 @@ export function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg text-muted-foreground max-w-2xl mb-12 md:text-xl"
+          className="text-lg text-muted-foreground max-w-2xl mb-8 md:text-xl"
         >
-          I&apos;m <span className="text-foreground font-semibold">{siteConfig.name}</span>,{" "}
-          a passionate {siteConfig.title} who loves building innovative web applications.
-          I specialize in creating seamless user experiences with modern technologies.
+          I&apos;m{" "}
+          <span className="text-foreground font-semibold">
+            {siteConfig.name}
+          </span>
+          , a passionate {siteConfig.title} who loves building innovative web
+          applications. I specialize in creating seamless user experiences with
+          modern technologies.
         </motion.p>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -57,7 +61,7 @@ export function AboutSection() {
               className="space-y-4"
             >
               {skills.map((skill, index) => {
-                const Icon = iconMap[skill.icon as keyof typeof iconMap]
+                const Icon = iconMap[skill.icon as keyof typeof iconMap];
                 return (
                   <motion.div
                     key={skill.title}
@@ -69,13 +73,15 @@ export function AboutSection() {
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-1 md:text-xl">{skill.title}</h4>
+                      <h4 className="font-semibold text-foreground mb-1 md:text-xl">
+                        {skill.title}
+                      </h4>
                       <p className="text-sm text-muted-foreground leading-relaxed md:text-[18px]">
                         {skill.description}
                       </p>
                     </div>
                   </motion.div>
-                )
+                );
               })}
             </motion.div>
           </div>
@@ -106,5 +112,5 @@ export function AboutSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
